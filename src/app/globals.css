@@ -1,0 +1,43 @@
+/* Leaflet requires its CSS to render properly */
+@import 'leaflet/dist/leaflet.css';
+
+@import "tailwindcss";
+
+@theme {
+  --color-background: #09090b;
+  --color-foreground: #fafafa;
+  --color-brand-purple: #2E1065;
+  --color-brand-blue: #3B82F6;
+  /* Next.js sets the font-family variable in layout.tsx as --font-inter */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: #09090b;
+    --foreground: #fafafa;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Custom Leaflet Map Overrides to fit Dark Theme */
+.leaflet-container {
+  background-color: #09090b !important;
+  border-radius: 0.5rem;
+}
+
+/* Remove default leaflet shadows/borders if necessary */
+.leaflet-control-container .leaflet-routing-container, .leaflet-bar {
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background-color: rgba(9, 9, 11, 0.8) !important;
+  backdrop-filter: blur(4px);
+}
+.leaflet-bar a, .leaflet-bar a:hover {
+  background-color: transparent !important;
+  color: #3B82F6 !important;
+}
